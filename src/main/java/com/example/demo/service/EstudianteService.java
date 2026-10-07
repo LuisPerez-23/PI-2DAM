@@ -15,9 +15,11 @@ public class EstudianteService {
     public EstudianteService(EstudianteRepository repo) {
         this.repo = repo;
     }
+
     public List<Estudiante>listarTodos(){
         return repo.findAll();
     }
+
     public Optional<Estudiante> buscarPorId(Long id){
         return repo.findById(id);
     }
