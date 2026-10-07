@@ -1,9 +1,15 @@
 package com.example.demo.model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name="estudiantes")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Estudiante {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,40 +21,7 @@ public class Estudiante {
     @Column(name = "edad")
     private int edad;
 
-    public Long getId() {
-        return id;
-    }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getCorreo() {
-        return correo;
-    }
-
-    public void setCorreo(String correo) {
-        this.correo = correo;
-    }
-
-    public int getEdad() {
-        return edad;
-    }
-
-    public void setEdad(int edad) {
-        this.edad = edad;
-    }
-
-
-    public Estudiante(){}
 
     public Estudiante(String nombre, String correo,int edad){
         this.nombre=nombre;
