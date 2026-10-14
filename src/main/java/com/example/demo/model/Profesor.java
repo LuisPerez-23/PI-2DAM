@@ -20,8 +20,17 @@ public class Profesor {
     private String especialidad;
     @Column(name = "experienciaAnios")
     private float experienciaAnios;
+    //relacion 1 a 1
+    @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @JoinColumn(name = "oficina_id",referencedColumnName = "id")
+    private Oficina oficina;
 
-
+    public Profesor(String nombre, String especialidad, float experienciaAnios,Oficina oficina) {
+        this.nombre = nombre;
+        this.especialidad = especialidad;
+        this.experienciaAnios = experienciaAnios;
+        this.oficina=oficina;
+    }
 
     public Profesor(String nombre, String especialidad, float experienciaAnios) {
         this.nombre = nombre;

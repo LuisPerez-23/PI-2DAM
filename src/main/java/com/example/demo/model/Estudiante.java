@@ -20,6 +20,11 @@ public class Estudiante {
     private String correo;
     @Column(name = "edad")
     private int edad;
+    //nueva relacion 1 a muchos
+    @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @JoinColumn(name = "perfil_id",referencedColumnName = "id")
+    private PerfilAcademico perfilAcademico;
+
 
 
 
@@ -27,5 +32,13 @@ public class Estudiante {
         this.nombre=nombre;
         this.correo=correo;
         this.edad=edad;
+    }
+    //constructor con perfil
+
+    public Estudiante(String nombre,String correo, int edad, PerfilAcademico perfilAcademico){
+        this.nombre=nombre;
+        this.correo=correo;
+        this.edad=edad;
+        this.perfilAcademico=perfilAcademico;
     }
 }

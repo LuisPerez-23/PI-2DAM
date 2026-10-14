@@ -1,6 +1,8 @@
 package com.example.demo.runner;
 
 import com.example.demo.model.Estudiante;
+import com.example.demo.model.Oficina;
+import com.example.demo.model.PerfilAcademico;
 import com.example.demo.model.Profesor;
 import com.example.demo.repository.EstudianteRepository;
 import com.example.demo.repository.ProfesorRepository;
@@ -31,6 +33,12 @@ public class InicializadorDatos {
             );
             repo.deleteById(2L);
             System.out.println(">>> Tras borrar el 2, quedan "+repo.count());
+            //--estudiante con perfil
+            PerfilAcademico perfil1 = new PerfilAcademico("apasionado del desarrollo backend0","B2",15.36);
+
+            Estudiante est3 = new Estudiante("Laura Pérez", "laura.perez@digitech.es", 21, perfil1);
+            repo.save(est3);
+            System.out.println(">>> Estudiante con perfil guardado.");
 
         };
     }
@@ -51,6 +59,12 @@ public class InicializadorDatos {
             repo2.findById(1L).ifPresent(
                     p -> System.out.println(">>> El 1 es "+p.getNombre())
             );
+            //--estudiante con perfil
+            Oficina oficina1 = new Oficina("ICKKSK","El oscurito de atras");
+
+            Profesor profesor3 = new Profesor("Luis Perez", "Politicas", 21,oficina1);
+            repo2.save(profesor3);
+            System.out.println(">>> Estudiante con perfil guardado.");
 
         };
     }
