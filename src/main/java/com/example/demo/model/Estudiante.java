@@ -21,7 +21,7 @@ public class Estudiante {
     @Column(name = "edad")
     private int edad;
     //nueva relacion 1 a muchos
-    @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER,orphanRemoval = true)
     @JoinColumn(name = "perfil_id",referencedColumnName = "id")
     private PerfilAcademico perfilAcademico;
 

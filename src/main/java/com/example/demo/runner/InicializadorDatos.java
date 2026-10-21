@@ -1,14 +1,13 @@
 package com.example.demo.runner;
 
-import com.example.demo.model.Estudiante;
-import com.example.demo.model.Oficina;
-import com.example.demo.model.PerfilAcademico;
-import com.example.demo.model.Profesor;
+import com.example.demo.model.*;
 import com.example.demo.repository.EstudianteRepository;
 import com.example.demo.repository.ProfesorRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import java.lang.classfile.CustomAttribute;
 
 
 @Configuration
@@ -65,6 +64,20 @@ public class InicializadorDatos {
             Profesor profesor3 = new Profesor("Luis Perez", "Politicas", 21,oficina1);
             repo2.save(profesor3);
             System.out.println(">>> Estudiante con perfil guardado.");
+            //--cursos de maria lopez
+            Curso c1 = new Curso();
+            c1.setNombreCurso("Programacion en Java");
+            c1.setCreditos(8);
+
+            Curso c2 = new Curso();
+            c2.setNombreCurso("Base de datos");
+            c2.setCreditos(6);
+
+            prof1.agregarCurso(c1);
+            prof1.agregarCurso(c2);
+
+            repo2.save(prof1);
+            System.out.println("Profesores con cursos guardado");
 
         };
     }
